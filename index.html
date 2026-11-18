@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Personal portfolio showcasing web design, graphic design, data analytics, AI and business skills.">
+  <title>My Personal Portfolio | Remote Work Portfolio | Admin, Design, Data & AI</title>
+  <style>
+    :root{
+      --navy:#14243a; --blue:#3768d8; --sky:#eaf1ff; --ink:#263449;
+      --muted:#68758a; --paper:#f7f9fc; --white:#fff; --line:#e5eaf2;
+      --mint:#dff5ee; --lav:#eee9ff; --peach:#fff0e7; --shadow:0 18px 50px rgba(24,43,73,.09);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.65}
+    a{color:inherit;text-decoration:none}
+    .wrap{width:min(1120px,92%);margin:auto}
+    header{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{font-weight:850;letter-spacing:-.04em;color:var(--navy);font-size:1.1rem}
+    .brand span{color:var(--blue)}
+    nav{display:flex;gap:22px;align-items:center;font-size:.9rem;color:#526078}
+    nav a:hover{color:var(--blue)}
+    .menu{display:none;border:1px solid var(--line);background:white;border-radius:10px;padding:8px 11px;font-size:1.1rem}
+    .hero{padding:86px 0 74px;background:radial-gradient(circle at 85% 18%,#e4edff 0,transparent 28%),linear-gradient(135deg,#fff 0%,#f4f7ff 100%);overflow:hidden}
+    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:55px;align-items:center}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;color:var(--blue);font-size:.78rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase}
+    .dot{width:8px;height:8px;border-radius:50%;background:#2ab58c;box-shadow:0 0 0 5px #dff5ee}
+    h1{font-size:clamp(2.7rem,6vw,5rem);line-height:1.04;letter-spacing:-.065em;color:var(--navy);margin:18px 0}
+    h1 em{font-style:normal;color:var(--blue)}
+    .lead{font-size:1.12rem;color:#5d6b80;max-width:650px}
+    .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+    .btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 19px;border-radius:12px;font-weight:750;font-size:.93rem;transition:.2s}
+    .primary{background:var(--blue);color:#fff;box-shadow:0 9px 22px rgba(55,104,216,.22)}
+    .primary:hover{transform:translateY(-2px);background:#2856c0}
+    .secondary{border:1px solid #d9e1ef;background:white;color:var(--navy)}
+    .hero-card{background:white;border:1px solid #e7ecf5;border-radius:26px;padding:24px;box-shadow:var(--shadow);transform:rotate(2deg)}
+    .mini-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;color:var(--muted);font-size:.78rem}
+    .avatar{height:76px;width:76px;border-radius:23px;background:linear-gradient(135deg,#dce8ff,#eee8ff);display:grid;place-items:center;font-size:2rem;color:var(--blue);font-weight:900}
+    .hero-card h3{margin:15px 0 2px;color:var(--navy);font-size:1.25rem}
+    .hero-card p{margin:0;color:var(--muted);font-size:.9rem}
+    .skill-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+    .pill{font-size:.76rem;padding:6px 10px;border-radius:999px;background:#f0f4fb;color:#43536c;font-weight:700}
+    section{padding:76px 0}
+    .section-head{max-width:690px;margin-bottom:34px}
+    .kicker{color:var(--blue);font-weight:850;text-transform:uppercase;letter-spacing:.14em;font-size:.75rem}
+    h2{font-size:clamp(2rem,4vw,3rem);line-height:1.12;letter-spacing:-.045em;color:var(--navy);margin:9px 0 12px}
+    .section-head p{color:var(--muted);margin:0}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .panel{background:white;border:1px solid var(--line);border-radius:20px;padding:26px}
+    .panel h3{margin:0 0 10px;color:var(--navy)}
+    .panel p{margin:0;color:var(--muted)}
+    .highlight{background:var(--navy);color:white;border-radius:20px;padding:28px}
+    .highlight h3{margin:0 0 10px}
+    .highlight p{color:#d3ddec;margin:0}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}
+    .stat{background:rgba(255,255,255,.08);padding:14px;border-radius:14px}
+    .stat strong{display:block;font-size:1.3rem}
+    .stat span{font-size:.75rem;color:#cbd7e8}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill-card,.project,.course-group{background:white;border:1px solid var(--line);border-radius:19px;padding:23px;transition:.2s}
+    .skill-card:hover,.project:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
+    .icon{height:46px;width:46px;border-radius:14px;display:grid;place-items:center;font-size:1.35rem;margin-bottom:16px}
+    .i-blue{background:var(--sky)} .i-mint{background:var(--mint)} .i-lav{background:var(--lav)} .i-peach{background:var(--peach)}
+    .skill-card h3,.project h3{margin:0 0 8px;color:var(--navy);font-size:1.08rem}
+    .skill-card p,.project p{margin:0;color:var(--muted);font-size:.9rem}
+    .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+    .tag{background:#f1f4f9;color:#526078;border-radius:8px;padding:5px 8px;font-size:.74rem;font-weight:700}
+    .projects{background:#f0f4fb}
+    .project-visual{height:155px;border-radius:13px;margin-bottom:17px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px}
+    .visual-web{background:linear-gradient(135deg,#dce8ff,#f3eaff)}
+    .browser{background:white;width:90%;height:112px;border-radius:9px;box-shadow:0 8px 18px #52607822;padding:10px}
+    .browser-bar{height:8px;width:45%;border-radius:8px;background:#dce4f2;margin-bottom:12px}
+    .browser-lines{height:9px;width:68%;background:#eaf0fa;border-radius:8px;margin:7px 0}
+    .browser-button{height:17px;width:45px;background:var(--blue);border-radius:5px;margin-top:10px}
+    .visual-brand{background:linear-gradient(135deg,#fbe7db,#f7d8e8)}
+    .brand-art{width:115px;height:115px;border-radius:50%;background:#fff9f4;display:grid;place-items:center;color:#a45b54;font-family:Georgia,serif;font-size:2rem;box-shadow:0 8px 20px #75433a20}
+    .visual-data{background:linear-gradient(135deg,#d9f3eb,#e3edff);gap:10px;align-items:end}
+    .bar{width:25px;border-radius:7px 7px 2px 2px;background:#4779d8}
+    .bar:nth-child(1){height:42px}.bar:nth-child(2){height:82px}.bar:nth-child(3){height:59px}.bar:nth-child(4){height:105px}.bar:nth-child(5){height:70px}
+    .visual-sql{background:linear-gradient(135deg,#e9e5ff,#e3edff)}
+    .code-window{background:#192b45;color:#c8d8f4;padding:16px;border-radius:10px;font: .78rem/1.7 ui-monospace,monospace;width:90%}
+    .visual-ai{background:linear-gradient(135deg,#e0f4ef,#e8edff)}
+    .ai-orb{width:90px;height:90px;border-radius:28px;background:linear-gradient(135deg,#3768d8,#7a64d8);display:grid;place-items:center;color:white;font-size:2.4rem;box-shadow:0 12px 24px #3768d844}
+    .visual-social{background:linear-gradient(135deg,#fff0df,#fce1e9)}
+    .social-art{width:82%;height:110px;background:#fffaf4;border-radius:12px;display:grid;place-items:center;text-align:center;color:#8e5d54;font-weight:850;letter-spacing:.08em}
+    .label{display:inline-block;font-size:.7rem;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:#8660c9;background:#f0eaff;padding:5px 8px;border-radius:7px;margin-bottom:9px}
+    .skills-layout{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .skill-list{display:flex;flex-wrap:wrap;gap:9px;margin-top:14px}
+    .skill-list span{border:1px solid var(--line);background:#fff;padding:8px 11px;border-radius:10px;font-size:.85rem;color:#42516a}
+    .courses{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    .course-group h3{margin:0 0 13px;color:var(--navy)}
+    .course-group ul{padding-left:19px;margin:0;color:var(--muted);font-size:.9rem}
+    .course-group li{margin:7px 0}
+    .note{font-size:.82rem;color:var(--muted);margin-top:17px}
+    .contact{background:var(--navy);color:white}
+    .contact h2{color:white}
+    .contact .section-head p{color:#c6d2e2}
+    .contact-box{background:#203550;border:1px solid #344a68;border-radius:20px;padding:26px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .contact-box p{color:#c6d2e2;margin:5px 0 0}
+    .contact .secondary{background:white}
+    footer{padding:22px 0;background:#101e31;color:#aebbd0;font-size:.82rem}
+    footer .wrap{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+    .svc{background:white;border:1px solid var(--line);border-radius:19px;margin-bottom:12px;transition:.2s}
+    .svc[open]{box-shadow:var(--shadow)}
+    .svc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:16px;padding:20px 23px}
+    .svc summary::-webkit-details-marker{display:none}
+    .svc summary .icon{margin:0;flex:none}
+    .svc summary h3{margin:0;color:var(--navy);font-size:1.12rem}
+    .svc summary p{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+    .svc summary::after{content:"+";margin-left:auto;font-size:1.5rem;color:var(--blue);font-weight:700;flex:none}
+    .svc[open] summary::after{content:"–"}
+    .svc summary:focus-visible,.quote-form input:focus-visible,.quote-form select:focus-visible,.quote-form textarea:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+    .svc-body{padding:0 23px 23px}
+    .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+    .tier{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px}
+    .tier b{display:block;color:var(--navy);margin-bottom:4px}
+    .tier span{color:var(--muted);font-size:.88rem}
+    .tier.std{border-top:3px solid var(--blue)}
+    .tier.cus{border-top:3px solid #2ab58c}
+    .svc-note{font-size:.82rem;color:var(--muted);margin:14px 0 0}
+    .svc-quote{display:inline-block;margin-top:14px;color:var(--blue);font-weight:750;font-size:.92rem}
+    .steps{list-style:none;counter-reset:s;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .steps li{counter-increment:s;background:white;border:1px solid var(--line);border-radius:16px;padding:18px;font-size:.92rem;color:var(--muted)}
+    .steps li::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--sky);color:var(--blue);font-weight:850;margin-bottom:10px}
+    .quote-form{background:white;border:1px solid var(--line);border-radius:20px;padding:26px;display:grid;gap:16px}
+    .qrow{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .quote-form label{display:block;font-weight:700;font-size:.88rem;color:var(--navy)}
+    .quote-form label small{font-weight:500;color:var(--muted)}
+    .quote-form input,.quote-form select,.quote-form textarea{width:100%;margin-top:6px;padding:12px;font:inherit;font-size:.95rem;color:var(--ink);background:var(--paper);border:1px solid #d5ddea;border-radius:10px}
+    .quote-form textarea{min-height:120px;resize:vertical}
+    .quote-form button{border:0;cursor:pointer;font-family:inherit}
+    #qerr{color:#b3261e;font-weight:700;font-size:.88rem}
+    #qresult{display:none;margin-top:18px;background:var(--mint);border-radius:16px;padding:20px}
+    #qresult pre{white-space:pre-wrap;font:inherit;font-size:.88rem;margin:10px 0 14px;color:var(--ink)}
+    @media(max-width:850px){.steps{grid-template-columns:1fr 1fr}.tiers{grid-template-columns:1fr}}
+    @media(max-width:620px){.qrow,.steps{grid-template-columns:1fr}.svc summary{padding:16px}.svc-body{padding:0 16px 18px}}
+    @media(max-width:850px){.hero-grid{grid-template-columns:1fr;gap:32px}.hero-card{max-width:480px;transform:none}.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:620px){nav{display:none;position:absolute;top:72px;left:0;right:0;background:white;padding:18px 4%;border-bottom:1px solid var(--line);flex-direction:column;align-items:flex-start}.nav.open nav{display:flex}.menu{display:block}.hero{padding:62px 0}.about-grid,.cards,.skills-layout,.courses{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr 1fr}.contact-box{align-items:flex-start;flex-direction:column}section{padding:58px 0}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="wrap nav" id="nav">
+    <a class="brand" href="#home">MY<span>PORTFOLIO.</span></a>
+    <nav>
+      <a href="#about">About</a><a href="#opportunities">Roles</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#services">Services</a><a href="#courses">Courses</a><a href="#contact">Contact</a>
+    </nav>
+    <button class="menu" aria-label="Toggle navigation" onclick="document.getElementById('nav').classList.toggle('open')">☰</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero" id="home">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> Creative • Analytical • Curious</div>
+        <h1>Organising work.<br><em>Designing possibilities.</em></h1>
+        <p class="lead">Hello, I'm <strong>Sreeji Rajendran</strong> — an MCom graduate with skills and portfolio work across virtual assistance, administration, document handling, web and graphic design, social media, data analytics and AI video creation. I am exploring remote and suitable hybrid opportunities.</p>
+        <div class="actions">
+          <a class="btn primary" href="#projects">Explore my sample work ↗</a>
+          <a class="btn secondary" href="#quote">Request a free quote</a>
+          <a class="btn secondary" href="#contact">Contact me</a>
+        </div>
+      </div>
+      <div class="hero-card">
+        <div class="mini-top"><span>MY PERSONAL PORTFOLIO</span><span>✦ 2026</span></div>
+        <div class="avatar">✳</div>
+        <h3>Sreeji Rajendran</h3>
+        <p>MCom Graduate · Multi-skilled Digital Professional</p>
+        <div class="skill-pills">
+          <span class="pill">Virtual Assistance</span><span class="pill">Document Support</span><span class="pill">Web & Graphic Design</span><span class="pill">Data Analytics</span><span class="pill">AI Video</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">A little about me</div><h2>Versatile skills for remote work.</h2><p>I bring together commerce education, organised administrative support, creative digital production and analytical learning. I am interested in remote opportunities where accuracy, communication, creativity and digital tools are valuable.</p></div>
+      <div class="about-grid">
+        <div class="panel">
+          <h3>My background</h3>
+          <p>I hold a Master of Commerce (MCom) and a Bachelor of Commerce (BCom) in Computer Applications. My learning and portfolio work span social media management, content creation, web and graphic design, data analytics, AI, cybersecurity and project management.</p>
+        </div>
+        <div class="highlight">
+          <h3>What I bring</h3>
+          <p>I am seeking remote opportunities in virtual assistance, administrative support, document control support, data entry and reporting, data analytics, graphic and web design, social media and AI video creation. I am also open to suitable hybrid roles.</p>
+          <div class="stats"><div class="stat"><strong>3</strong><span>Core disciplines</span></div><div class="stat"><strong>20+</strong><span>Courses & topics</span></div><div class="stat"><strong>5</strong><span>Project concepts</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="opportunities"><div class="wrap">
+<div class="section-head"><div class="kicker">Roles I am exploring</div><h2>How I can contribute</h2><p>I am open to remote opportunities across these areas, depending on role requirements and training provided.</p></div>
+<div class="cards">
+<article class="skill-card"><div class="icon i-blue">▣</div><h3>Virtual Assistant</h3><p>Online research, data entry, document preparation and organised record keeping.</p></article>
+<article class="skill-card"><div class="icon i-mint">▤</div><h3>Document Controller / Admin Support</h3><p>Document organisation, filing, record maintenance, data validation and reporting support.</p></article>
+<article class="skill-card"><div class="icon i-lav">▥</div><h3>Data Analyst</h3><p>Excel-based analysis, SQL, dashboards, data visualisation and business reporting.</p></article>
+<article class="skill-card"><div class="icon i-peach">✎</div><h3>Graphic & Web Designer</h3><p>Visual content, branding concepts, website layouts, landing pages and responsive design.</p></article>
+<article class="skill-card"><div class="icon i-blue">▶</div><h3>AI Video Creator</h3><p>AI-assisted video concepts, scripts, prompts, short-form edits and reels.</p></article>
+<article class="skill-card"><div class="icon i-mint">◎</div><h3>Social Media Support</h3><p>Content planning, captions, platform publishing, creative assets and performance tracking.</p></article>
+</div></div></section><section id="skills" style="background:#fff">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">What I work with</div><h2>Skills & tools</h2><p>A snapshot of my design, analytics, technology and business toolkit.</p></div>
+      <div class="cards">
+        <article class="skill-card"><div class="icon i-blue">⌘</div><h3>Web Design & Development</h3><p>Designing and building website layouts and pages.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">WordPress</span><span class="tag">Wix</span></div></article>
+        <article class="skill-card"><div class="icon i-peach">✎</div><h3>Graphic Design</h3><p>Creating visual content and communication materials.</p><div class="tags"><span class="tag">Photoshop</span><span class="tag">Illustrator</span><span class="tag">Canva</span></div></article>
+        <article class="skill-card"><div class="icon i-mint">▥</div><h3>Data Analytics</h3><p>Working with data, analysis and visual reporting tools.</p><div class="tags"><span class="tag">Excel</span><span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Tableau</span></div></article>
+        <article class="skill-card"><div class="icon i-lav">✧</div><h3>AI & Cybersecurity</h3><p>Learning responsible AI, governance and security concepts.</p><div class="tags"><span class="tag">AI Ethics</span><span class="tag">AI Governance</span><span class="tag">NIST RMF</span></div></article>
+        <article class="skill-card"><div class="icon i-blue">▤</div><h3>Finance & Accounts</h3><p>Commerce foundation and familiarity with accounting tools.</p><div class="tags"><span class="tag">Tally</span><span class="tag">QuickBooks</span><span class="tag">Zoho</span></div></article>
+        <article class="skill-card"><div class="icon i-mint">◎</div><h3>Business & Administration</h3><p>Organising information and supporting business activities.</p><div class="tags"><span class="tag">MS Word</span><span class="tag">Project Management</span><span class="tag">Presentations</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Selected practice work</div><h2>Sample projects</h2><p>The gallery includes portfolio work described in my CV and practice concepts. These are not presented as paid client employment. Add screenshots and links as each item is prepared.</p></div>
+      <div class="cards">
+        <article class="project"><div class="project-visual visual-data"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="label">Portfolio work · Power BI</span><h3>Airline Operations KPI Dashboard</h3><p>A project described in my CV, tracking 50+ operational KPIs. Add verified screenshots and details of the measures used.</p><div class="tags"><span class="tag">Power BI</span><span class="tag">KPI reporting</span></div></article>
+        <article class="project"><div class="project-visual visual-data"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="label">Portfolio work · Excel & Power BI</span><h3>Retail Sales Performance Analysis</h3><p>A project described in my CV, analysing sales data for revenue trends and underperforming categories.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Power BI</span></div></article>
+        <article class="project"><div class="project-visual visual-web"><div class="browser"><div class="browser-bar"></div><div class="browser-lines"></div><div class="browser-lines" style="width:48%"></div><div class="browser-button"></div></div></div><span class="label">Concept project · Web</span><h3>Small Business Landing Page</h3><p>A responsive homepage concept for a local service business, with clear sections, service highlights and a contact call-to-action.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive design</span></div></article>
+        <article class="project"><div class="project-visual visual-brand"><div class="brand-art">AURA</div></div><span class="label">Concept project · Branding</span><h3>Aura Brand Identity</h3><p>A sample visual identity direction for a lifestyle brand, including a logo concept, colour palette and social media look.</p><div class="tags"><span class="tag">Illustrator</span><span class="tag">Photoshop</span><span class="tag">Canva</span></div></article>
+        <article class="project"><div class="project-visual visual-data"><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><span class="label">Concept project · Analytics</span><h3>Sales Performance Dashboard</h3><p>A practice dashboard concept to present sales, monthly trends, product categories and key business indicators.</p><div class="tags"><span class="tag">Excel</span><span class="tag">Power BI</span><span class="tag">Visualization</span></div></article>
+        <article class="project"><div class="project-visual visual-sql"><div class="code-window">SELECT category,<br>&nbsp; SUM(sales)<br>FROM orders<br>GROUP BY category;</div></div><span class="label">Practice project · SQL</span><h3>Retail Data Exploration</h3><p>A learning project idea using a sample retail dataset to practise filtering, grouping and summarising information.</p><div class="tags"><span class="tag">SQL</span><span class="tag">Data analysis</span></div></article>
+        <article class="project"><div class="project-visual visual-ai"><div class="ai-orb">✧</div></div><span class="label">Learning project · AI</span><h3>Responsible AI Guide</h3><p>A simple educational resource explaining AI ethics, privacy, fairness and responsible data practices.</p><div class="tags"><span class="tag">AI Ethics</span><span class="tag">Governance</span></div></article>
+        <article class="project"><div class="project-visual visual-social"><div class="social-art">CREATE<br>WITH PURPOSE</div></div><span class="label">Concept project · Social</span><h3>Social Media Campaign</h3><p>A sample set of promotional post designs for a fictional small business, using a consistent visual style.</p><div class="tags"><span class="tag">Canva</span><span class="tag">Photoshop</span><span class="tag">Graphic design</span></div></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Work with me</div><h2>Services & packages</h2><p>Available for clients in Oman and internationally, working remotely. Open a service to see what each level includes. Every project is priced by custom quotation.</p></div>
+
+      <details class="svc"><summary><div class="icon i-peach">◎</div><div><h3>Social Media Management</h3><p>Content planning, designs and account support</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Content planning and captions.</span></div><div class="tier std"><b>Standard</b><span>Post designs, captions, content calendar and reel covers.</span></div><div class="tier cus"><b>Custom</b><span>Ongoing social media content and account support.</span></div></div><a class="svc-quote" href="#quote" data-svc="Social Media Management">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-lav">✎</div><div><h3>Graphic Design</h3><p>Posters, flyers, branding and visual projects</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Simple posters, flyers and social media designs.</span></div><div class="tier std"><b>Standard</b><span>Branding materials and design collections.</span></div><div class="tier cus"><b>Custom</b><span>Complete visual design projects.</span></div></div><a class="svc-quote" href="#quote" data-svc="Graphic Design">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-blue">⌘</div><div><h3>Website Design</h3><p>Landing pages and business websites</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Single-page website or landing page.</span></div><div class="tier std"><b>Standard</b><span>Multi-section business website.</span></div><div class="tier cus"><b>Custom</b><span>Website design based on business requirements.</span></div></div><p class="svc-note">Built with HTML, CSS, WordPress or Wix, depending on the project.</p><a class="svc-quote" href="#quote" data-svc="Website Design">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-mint">▶</div><div><h3>AI Video Creation & Editing</h3><p>Reels, promos and script-based videos</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Short video or reel editing.</span></div><div class="tier std"><b>Standard</b><span>AI-generated promotional videos.</span></div><div class="tier cus"><b>Custom</b><span>Script-based video projects with scene planning and editing.</span></div></div><a class="svc-quote" href="#quote" data-svc="AI Video Creation & Editing">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-blue">▣</div><div><h3>Virtual Assistant & Admin Support</h3><p>Remote help with data, documents and email</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Data entry and document formatting.</span></div><div class="tier std"><b>Standard</b><span>Excel reports, record keeping and email support.</span></div><div class="tier cus"><b>Custom</b><span>Ongoing remote administrative assistance.</span></div></div><a class="svc-quote" href="#quote" data-svc="Virtual Assistant & Admin Support">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-mint">▥</div><div><h3>Data Analytics & Reporting</h3><p>Clean data, analysis and dashboards</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Excel data cleaning and basic reports.</span></div><div class="tier std"><b>Standard</b><span>Data analysis and visualisation.</span></div><div class="tier cus"><b>Custom</b><span>Excel or Power BI dashboard projects.</span></div></div><a class="svc-quote" href="#quote" data-svc="Data Analytics & Reporting">Get a custom quotation</a></div></details>
+
+      <details class="svc"><summary><div class="icon i-peach">▤</div><div><h3>Finance & Documentation Support</h3><p>Invoices, records and organised paperwork</p></div></summary><div class="svc-body"><div class="tiers"><div class="tier"><b>Essential</b><span>Invoice and document preparation.</span></div><div class="tier std"><b>Standard</b><span>Spreadsheet-based expense and record organisation.</span></div><div class="tier cus"><b>Custom</b><span>Bookkeeping and administrative support based on agreed scope.</span></div></div><p class="svc-note">Support services only. Not statutory audit, tax certification or regulated professional advice.</p><a class="svc-quote" href="#quote" data-svc="Finance & Documentation Support">Get a custom quotation</a></div></details>
+    </div>
+  </section>
+
+  <section id="quote" style="background:#fff">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Flexible pricing</div><h2>Let's discuss your project</h2><p>Every project is different. I offer customised packages based on your requirements, project complexity, delivery timeline and budget.</p></div>
+      <ol class="steps" style="margin-bottom:34px"><li>Share your project requirements.</li><li>Receive a customised quotation.</li><li>Approve the scope and timeline.</li><li>Get started.</li></ol>
+      <h3 style="color:var(--navy);margin:0 0 14px">Request a free quote</h3>
+      <form class="quote-form" id="qform" novalidate>
+        <div class="qrow"><label>Your name<input id="q-name" autocomplete="name" required></label><label>Email address<input id="q-email" type="email" autocomplete="email" required></label></div>
+        <div class="qrow"><label>Country<input id="q-country" autocomplete="country-name" required></label>
+          <label>Required service<select id="q-service" required><option value="">Choose a service</option><option>Social Media Management</option><option>Graphic Design</option><option>Website Design</option><option>AI Video Creation & Editing</option><option>Virtual Assistant & Admin Support</option><option>Data Analytics & Reporting</option><option>Finance & Documentation Support</option><option>Other / not sure</option></select></label></div>
+        <label>Project description<textarea id="q-desc" placeholder="What do you need, and what is it for?" required></textarea></label>
+        <div class="qrow"><label>Expected deadline<input id="q-deadline" type="date"></label><label>Budget <small>(optional)</small><input id="q-budget" placeholder="e.g. OMR 100 or USD 300"></label></div>
+        <button class="btn primary" type="submit">Send quote request</button>
+        <div id="qerr" role="alert"></div>
+      </form>
+      <div id="qresult" role="status"><strong>Your request is ready.</strong><pre id="qmsg"></pre><button class="btn primary" id="qcopy" type="button" style="border:0;cursor:pointer;font-family:inherit">Copy message</button><p class="note">If your email app did not open, copy the message and send it to <a href="mailto:sreejibinu1995@gmail.com" style="color:var(--blue);font-weight:700">sreejibinu1995@gmail.com</a>.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Tools & knowledge</div><h2>My broader toolkit</h2><p>Additional areas covered through coursework and independent learning.</p></div>
+      <div class="skills-layout">
+        <div class="panel"><h3>Data, reporting & productivity</h3><div class="skill-list"><span>Master Data Analytics in Excel</span><span>Data Analytics with Excel</span><span>SQL for Data Science</span><span>Data Science with Python</span><span>Power BI</span><span>Tableau</span><span>Presenting Data</span><span>Microsoft Word</span></div></div>
+        <div class="panel"><h3>AI, security & governance</h3><div class="skill-list"><span>AI Data Management</span><span>AI for Business Professionals</span><span>AI Ethics</span><span>AI Security & Governance</span><span>Cybersecurity Awareness</span><span>Social & Ethical Awareness</span><span>AI and Human Rights</span><span>NIST Risk Management Framework</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="courses" style="background:#fff">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker">Continuous learning</div><h2>Education & completed courses</h2><p>My academic background and completed learning topics.</p></div>
+      <div class="courses">
+        <div class="course-group"><h3>🎓 Academic education</h3><ul><li>Master of Commerce (MCom)</li><li>Bachelor of Commerce (BCom)</li></ul></div>
+        <div class="course-group"><h3>📊 Data & analytics</h3><ul><li>Master Data Analytics in Excel</li><li>Data Analytics with Excel</li><li>SQL for Data Science</li><li>Data Science with Python</li><li>Data Visualization in Tableau</li><li>Data Visualization in Power BI</li><li>Data Science & Analytics</li><li>Data Science in Stratified Healthcare and Precision Medicine</li><li>Presenting Data</li><li>Data & AI Learning</li></ul></div>
+        <div class="course-group"><h3>🤖 AI, ethics & security</h3><ul><li>AI Data Management</li><li>AI for Business Professionals</li><li>AI Ethics for Beginners</li><li>AI Security & Governance</li><li>Social & Ethical Awareness</li><li>AI and Human Rights</li><li>Introduction to Cybersecurity Awareness</li><li>Standards & Frameworks</li><li>NIST Risk Management Framework for Systems and Organizations</li><li>Security Education</li></ul></div>
+        <div class="course-group"><h3>💼 Professional development</h3><ul><li>Project Management</li><li>Professional Development (HP LIFE)</li></ul></div>
+      </div>
+      <p class="note">Please add the course provider, completion date and certificate link where available. Course titles are listed as learning completed; they should not be described as professional certifications unless the provider issued a certification.</p>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="section-head"><div class="kicker" style="color:#a9c1ff">Let's connect</div><h2>Have an opportunity or a project in mind?</h2><p>I am interested in suitable opportunities in web design, graphic design, data, administration and related areas. Feel free to get in touch.</p></div>
+      <div class="contact-box"><div><h3 style="margin:0">Sreeji Rajendran</h3><p>Muscat, Oman · +968 79071258 · sreejibinu1995@gmail.com</p><p><a href="https://linkedin.com/in/sreeji-binu-44067a3a8" target="_blank" rel="noopener">LinkedIn profile ↗</a></p></div><a class="btn secondary" href="mailto:sreejibinu1995@gmail.com">Email me ↗</a></div>
+      <p class="note" style="color:#b8c7dc">Before publishing, update your name, email address, LinkedIn URL and CV link in this file.</p>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap"><span>© 2026 My Personal Portfolio</span><span>Designed with care · Built for learning and opportunity</span></div></footer>
+<script>
+  document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+
+  // Quote form: pre-select service from the "Get a custom quotation" links
+  document.querySelectorAll('.svc-quote').forEach(a=>a.addEventListener('click',()=>{
+    document.getElementById('q-service').value=a.dataset.svc;
+  }));
+  // Quote form: builds the message and opens the visitor's email app
+  const QUOTE_EMAIL='sreejibinu1995@gmail.com';
+  document.getElementById('qform').addEventListener('submit',e=>{
+    e.preventDefault();
+    const v=id=>document.getElementById(id).value.trim();
+    const err=document.getElementById('qerr');
+    if(!v('q-name')||!v('q-email')||!v('q-country')||!v('q-service')||!v('q-desc')){err.textContent='Please fill in your name, email, country, service and project description.';return;}
+    if(!/^\S+@\S+\.\S+$/.test(v('q-email'))){err.textContent='Enter a valid email address.';return;}
+    err.textContent='';
+    const body='Name: '+v('q-name')+'\nEmail: '+v('q-email')+'\nCountry: '+v('q-country')+'\nService: '+v('q-service')+
+      '\nDeadline: '+(v('q-deadline')||'Not set')+'\nBudget: '+(v('q-budget')||'Not shared')+'\n\nProject:\n'+v('q-desc');
+    document.getElementById('qmsg').textContent=body;
+    document.getElementById('qresult').style.display='block';
+    window.location.href='mailto:'+QUOTE_EMAIL+'?subject='+encodeURIComponent('Quote request: '+v('q-service'))+'&body='+encodeURIComponent(body);
+  });
+  document.getElementById('qcopy').addEventListener('click',function(){
+    const t=document.getElementById('qmsg').textContent;
+    try{navigator.clipboard.writeText(t).then(()=>{this.textContent='Copied';});}catch(err){this.textContent='Select the text above to copy';}
+  });
+</script>
+</body>
+</html>
